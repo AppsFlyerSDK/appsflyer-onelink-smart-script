@@ -1,0 +1,75 @@
+/* CSS files add styling rules to your content */
+
+body {
+  font-family: helvetica, arial, sans-serif;
+  padding: 40px;  
+  width: 100%;
+  height: 100%;
+  background: #FFFFFF;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.row{
+  display: flex;
+  justify-content: space-around;
+}
+
+.column img{
+  width: 70%;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+h1{
+  margin: 25px 0 30px;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 70px;
+  line-height: 80px;
+  color: #00A0E0;
+}
+
+h2 {
+  margin: 10px 0 30px 30px;
+  font-family: sans-serif;
+  font-style: normal;
+  font-size: 55px;
+  color: gray;
+  line-height: 85px;
+}
+
+.storebox {
+  position: relative;  
+  margin: 15px 15px 1px 30px;
+}
+
+.stores-wrapper{
+  position: relative;
+  top: 50px;
+  margin: 50px;
+  text-align: center;
+}
+
+.storebox img {
+  border-radius: 15px;
+  width: 70%;
+}
+
+.present_url{
+  word-break: break-all;
+  position: relative;
+  top: 50px;
+  padding: 40px;
+  border: 1px solid gray;
+  border-radius: 15px;
+  font-size: 50px;
+}
