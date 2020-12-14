@@ -26,10 +26,11 @@
   <h1>
     Smart Script Demo
   </h1>
-  
+
   <h2>
     Web-to-App made easy :)
   </h2>
+  
     <div class="stores-wrapper">
       <a id="ios_link" href="https://apps.apple.com/us/app/my-device-id-by-appsflyer/id1192323960">
         <div class="storebox">
@@ -44,6 +45,9 @@
       </a>
     </div>
 
+  <h2 id="input_url" class="present_url">
+    No input URL
+  </h2>
 
   <h2 id="output_url" class="present_url">
     No output from script
@@ -52,6 +56,7 @@
   <script type="text/javascript" src="../scripts/onelink-smart-script.js"></script>
   <script type="text/javascript">
     window.onload = function () {
+      document.getElementById('input_url').innerHTML = window.location.href;
       const onelinkGenerator =  new window.AF.OneLinkUrlGenerator(
         {oneLinkURL: "https://engmntqa.onelink.me/LtRd/",
          pidKeysList: ['af_pid'],
