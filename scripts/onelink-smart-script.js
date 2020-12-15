@@ -6,7 +6,6 @@ class OneLinkUrlGenerator {
     // ...
     constructor({
                     oneLinkURL,
-                    desktopFallbackURL = null,
                     pidKeysList = [],
                     pidStaticValue = null,
                     campaignKeysList = [],
@@ -22,7 +21,6 @@ class OneLinkUrlGenerator {
         }
 
         this.oneLinkURL = oneLinkURL;
-        this.desktopFallbackURL = desktopFallbackURL;
         this.pidOverrideList = pidOverrideList,
         this.gclIdParam = gclIdParam,
         this.pidKeysList = pidKeysList,
@@ -48,11 +46,6 @@ class OneLinkUrlGenerator {
         if (getParameterFromURL('af_redirect')) {
             console.debug("This user comes from AppsFlyer by redirection and is ready to be attributed. \nKeep direct app store links.");
             return null; // in this case, the original store links in the install buttons stay the same
-        }
-
-        // Desktop user
-        if (!isMobileDevice()) {
-            return desktopFallbackURL;
         }
 
         if (isFacebook()) {
@@ -178,10 +171,6 @@ function getCampaignValue(campaignKeysList, campaignStaticValue){
         return document.getElementsByTagName('title')[0].innerText;
     }
     return 'unknown';
-}
-
-function isMobileDevice() {
-    return (window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
 }
 
 // Create a string of param and value from
