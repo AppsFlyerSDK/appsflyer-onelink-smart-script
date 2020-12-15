@@ -7,13 +7,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  
   <!-- import the webpage's stylesheet -->
   <link rel="stylesheet" href="style.css">
-  
 </head>
 <body>
-
   <div class="row">
     <div class="column">
       <img src="../images/appsflyerlogo.png" alt="AppsFlyer logo">
@@ -23,35 +20,35 @@
     </div>
   </div>
 
-  <h1>
-    Smart Script Demo
+  <h1 class="primary-heading">
+    OneLink Smart Script
   </h1>
-  
-  <h2>
-    Web-to-App made easy :)
+  <h2 class="secondary-heading">
+    Override PID Demo
   </h2>
     <div class="stores-wrapper">
       <a id="ios_link" href="https://apps.apple.com/us/app/my-device-id-by-appsflyer/id1192323960">
-        <div class="storebox">
-          <img src="../images/app_store.png" alt="app store link" >
-        </div>
+          <img class="appstore-image" src="../images/app_store.png" alt="app store link" >
       </a>
       
-      <a id="andrd_link" href="https://play.google.com/store/apps/details?id=com.appsflyer.android.deviceid">
-        <div class="storebox">
+      <a id="andrd_link" class="appstore-image" href="https://play.google.com/store/apps/details?id=com.appsflyer.android.deviceid">
           <img src="../images/play_store.png" alt="play store link">
-        </div>
       </a>
     </div>
-
-  <h2 id="input_url" class="present_url">
-    No input URL
-  </h2>
-
-  <h2 id="output_url" class="present_url">
+<div class="url-container">
+  <div class="input_url-container">
+    <h2>Input URL</h2>
+    <textarea id="input_url" class="present_url">
+      No input URL
+    </textarea>
+  </div>
+  <div class="output_url-container">
+    <h2>Output URL</h2>
+  <textarea id="output_url" class="present_url">
     No output from script
-  </h2>
-
+  </textarea>
+</div>
+</div>
   <script type="text/javascript" src="../scripts/onelink-smart-script.js"></script>
   <script type="text/javascript">
     window.onload = function () {
