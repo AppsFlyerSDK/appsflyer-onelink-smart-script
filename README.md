@@ -15,9 +15,9 @@ Runs seamlessly on any webpage or landing page.
 Table of contents: 
 - [Script](scripts/onelink-smart-script.js)
 - Sample use cases
-  - [Basic URL](https://liaz-af.github.io/af-onelink-smart-script/examples/basic_url.html?af_c=gogo&af_pid=email)
-  - [UTM Parameters](https://liaz-af.github.io/af-onelink-smart-script/examples/utm_params.html?utm_source=email&utm_campaign=summer_sale)
-  - [Static PID and campaign values](https://liaz-af.github.io/af-onelink-smart-script/examples/static_val.html?af_not_c=gogo&af_not_pid=email) 
-  - [Override PID](https://liaz-af.github.io/af-onelink-smart-script/examples/override_pid.html?af_pid=twitter&af_c=big_social)
-  - [Google Click ID](https://liaz-af.github.io/af-onelink-smart-script/examples/gclid.html?af_pid=sms&af_c=candles&gclid=1a2b3c)
-  - [Set OneLink parameters](https://liaz-af.github.io/af-onelink-smart-script/examples/setters.html?af_c=gogo&af_pid=email)
+  - [Basic URL](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/basic_url.html?af_c=gogo&af_pid=email)
+  - [UTM Parameters](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/utm_params.html?utm_source=email&utm_campaign=summer_sale)
+  - [Static PID and campaign values](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/static_val.html?af_not_c=gogo&af_not_pid=email) 
+  - [Override PID](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/override_pid.html?af_pid=twitter&af_c=big_social)
+  - [Google Click ID](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/gclid.html?af_pid=sms&af_c=candles&gclid=1a2b3c)
+  - [Set OneLink parameters](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/setters.html?af_c=gogo&af_pid=email)
