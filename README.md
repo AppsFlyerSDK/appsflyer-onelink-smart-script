@@ -1,5 +1,7 @@
-## At a glance
-Use OneLink Smart Script to generate URLs that get embedded behind a button on your mobile website.
+## Overview
+**At a glance:** Use OneLink Smart Script to generate URLs that get embedded behind a button on your mobile website.
+
+![smart_script_flow](./images/Smart_Script_flow.png "OneLink Smart Script flow")
 
 Users arrive at your mobile website before reaching your app store page, either organically, or via advertising campaigns. However, since there are two clicks (the first that directs to the web page and the second that directs from the web page to the app store), collecting click conversion metrics and deep linking is problematic. 
 
