@@ -66,7 +66,6 @@ class OneLinkUrlGenerator {
         const gclIdValue = getParameterFromURL('gclid');
 
         if (gclIdValue) {
-            pidValue = 'google_lp';
             this.afParams[this.gclIdParam] = gclIdValue
             console.debug("This user comes from Google AdWords");
 
