@@ -11,7 +11,7 @@ class OneLinkUrlGenerator {
                     campaignKeysList = [],
                     campaignStaticValue = null,
                     pidOverrideList = [],
-                    gclIdParam = 'af_sub5',
+                    gclIdParam = 'af_sub1',
                 } = {}) {
 
         console.debug("Constructing OneLink URL generator")
