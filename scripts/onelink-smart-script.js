@@ -12,6 +12,7 @@ class OneLinkUrlGenerator {
                     campaignStaticValue = null,
                     pidOverrideList = [],
                     gclIdParam = 'af_sub5',
+                    skipList = ["facebook"]
                 } = {}) {
 
         console.debug("Constructing OneLink URL generator")
@@ -21,12 +22,13 @@ class OneLinkUrlGenerator {
         }
 
         this.oneLinkURL = oneLinkURL;
-        this.pidOverrideList = pidOverrideList,
-        this.gclIdParam = gclIdParam,
-        this.pidKeysList = pidKeysList,
-        this.pidStaticValue = pidStaticValue,
-        this.campaignKeysList = campaignKeysList,
-        this.campaignStaticValue = campaignStaticValue,
+        this.pidOverrideList = pidOverrideList;
+        this.gclIdParam = gclIdParam;
+        this.pidKeysList = pidKeysList;
+        this.pidStaticValue = pidStaticValue;
+        this.campaignKeysList = campaignKeysList;
+        this.campaignStaticValue = campaignStaticValue;
+        this.skipList = skipList
 
         // OneLink parameters
         this.campaign = getCampaignValue(this.campaignKeysList, this.campaignStaticValue);
@@ -48,8 +50,8 @@ class OneLinkUrlGenerator {
             return null; // in this case, the original store links in the install buttons stay the same
         }
 
-        if (isFacebook()) {
-            console.debug("This user comes from a paid Facebook ad - don't do anything. \nKeep direct app store links.");
+        if (this.isSkipped()) {
+            console.debug("This URL is marked for skipping. The script will return null");
             // the caller should make sure a return value of null will leave the original link
             return null;
         }
@@ -74,6 +76,20 @@ class OneLinkUrlGenerator {
         const finalURL = this.oneLinkURL + '?pid=' + pidValue + '&c=' + this.campaign + stringifyAfParameters(this.afParams);
         console.debug(`Generated OneLink URL ${finalURL}`)
         return finalURL;
+    }
+
+    // Should this URL be skipped base on the HTTP referrer and the skipList[]
+    isSkipped() {
+        if (document.referrer && document.referrer != "") {
+            for (var i=0; i<this.skipList.length; i++) {
+                const skipStr = this.skipList[i];
+                if (document.referrer.toLowerCase().includes(skipStr.toLowerCase())) {
+                    console.debug("Skipping the script. HTTP referrer has: " + skipStr);
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     // Setters for AF params
@@ -119,15 +135,6 @@ class OneLinkUrlGenerator {
 }
 
 // Statis state-less functions
-// Note - when device ID sharing becomes optional stop calling this method (or always return false)
-function isFacebook() {
-    if (document.referrer && document.referrer != "") {
-        return document.referrer.toLowerCase().includes('facebook');
-    } else {
-        return false;
-    }
-}
-
 function getParameterFromURL(name) {
     const url = window.location.href;
     name = name.replace(/[\[\]]/g, '\\$&');
