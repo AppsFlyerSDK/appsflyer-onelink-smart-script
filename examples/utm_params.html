@@ -9,7 +9,7 @@
   
   <!-- import the webpage's stylesheet -->
   <link rel="stylesheet" href="style.css">
-  
+  <script src="../scripts/easy.qrcode.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
 
@@ -42,7 +42,7 @@
         </div>
       </a>
     </div>
-
+    <div id="qrcode"></div>
   <h2 id="input_url" class="present_url">
     No input URL
   </h2>
@@ -56,7 +56,7 @@
     window.onload = function () {
       document.getElementById('input_url').innerHTML = window.location.href;
       const onelinkGenerator =  new window.AF.OneLinkUrlGenerator(
-        {oneLinkURL: "https://engmntqa.onelink.me/LtRd/",
+        {oneLinkURL: "https://onelink-sim.onelink.me/coiD",
          pidKeysList: ['af_pid', 'utm_source'],
          campaignKeysList: ['af_c', 'utm_campaign']
       });
@@ -67,6 +67,15 @@
             document.getElementById('andrd_link').setAttribute('href', url);
             document.getElementById('ios_link').setAttribute('href', url);
             document.getElementById('output_url').innerHTML = url;
+
+            // Options
+            var options = {
+              text: url
+            };
+            
+            // Create QRCode Object
+            new QRCode(document.getElementById("qrcode"), options);
+            
       }
 
     };

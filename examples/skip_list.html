@@ -6,6 +6,7 @@
 <head>
   <!-- import the webpage's stylesheet -->
   <link rel="stylesheet" href="style.css">
+  <script src="../scripts/easy.qrcode.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
   <div class="row">
@@ -33,6 +34,7 @@
       </a>
     </div>
 <div class="url-container">
+  <div id="qrcode"></div>
   <div class="input_url-container">
     <h2>Input URL</h2>
     <textarea id="input_url" class="present_url">
@@ -57,7 +59,7 @@ Object.defineProperty(document, "referrer", {get : function(){ return "came from
   window.onload = function () {
     document.getElementById('input_url').innerHTML = window.location.href;
     const onelinkGenerator =  new window.AF.OneLinkUrlGenerator(
-      {oneLinkURL: "https://engmntqa.onelink.me/LtRd/",
+      {oneLinkURL: "https://onelink-sim.onelink.me/coiD",
         pidKeysList: ['original_pid'],
         campaignKeysList: ['original_campaign'],
         skipList: ['twitter', 'facebook']
@@ -69,6 +71,15 @@ Object.defineProperty(document, "referrer", {get : function(){ return "came from
           document.getElementById('andrd_link').setAttribute('href', url);
           document.getElementById('ios_link').setAttribute('href', url);
           document.getElementById('output_url').innerHTML = url;
+
+            // Options
+            var options = {
+              text: url
+            };
+            
+            // Create QRCode Object
+            new QRCode(document.getElementById("qrcode"), options);
+            
     }
 
   };
