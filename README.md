@@ -21,4 +21,5 @@ Table of contents:
   - [Override PID](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/override_pid.html?af_pid=twitter&af_c=big_social)
   - [Google Click ID](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/gclid.html?af_pid=sms&af_c=candles&gclid=1a2b3c)
   - [Set OneLink parameters](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/setters.html?af_c=gogo&af_pid=email)
+  - [Set AppsFlyer parameters](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/set_af_params.html?af_c=gogo&af_pid=email&partner_name=bigagency)
   - [Skip List](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/skip_list.html?original_campaign=origcamp&original_pid=origpid)
