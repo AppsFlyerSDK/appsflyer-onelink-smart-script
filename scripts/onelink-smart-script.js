@@ -114,7 +114,7 @@ class OneLinkUrlGenerator {
     }
 
     setAfSub2(afSub2Param, afSub2Value = null){
-        setGenericParameter(this.afParams, 'this.afParams, af_sub2', afSub2Param, afSub2Value);
+        setGenericParameter(this.afParams, 'af_sub2', afSub2Param, afSub2Value);
     }
 
     setAfSub3(afSub3Param, afSub3Value = null){
