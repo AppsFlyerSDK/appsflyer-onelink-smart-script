@@ -151,6 +151,7 @@ function getMediaSourceValue(pidKeysList, pidStaticValue, pidOverrideList){
     for (let pidKey of pidKeysList){
         if (pidKey != null && getParameterFromURL(pidKey)) {
             pidValue = getParameterFromURL(pidKey);
+            break;
         }
     }
 
