@@ -1,6 +1,6 @@
-<!-- This example will demonstare converting a URL to OneLink URL searching for a single key for media_source and campaign -->
-<!-- Calling URL: https://appsflyersdk.github.io/af-onelink-smart-script/examples/skip_list.html?incmp=gogo&inmedia=email -->
-<!-- Expected OneLink URL: https://engmntqa.onelink.me/LtRd/?pid=email&c=gogo&af_js_web=true&af_ss_ver=2 -->
+<!-- This example will demonstare converting a URL to OneLink URL searching for utm parameters for media_source and campaign -->
+<!-- Calling URL: https://appsflyersdk.github.io/af-onelink-smart-script/examples/utm_parameters.html?utm_campaign=mycmpn&utm_source=mysource -->
+<!-- Expected OneLink URL: https://engmntqa.onelink.me/LtRd/?pid=mysource&c=mycmpn&af_js_web=true&af_ss_ver=2 -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +23,7 @@
     OneLink Smart Script V2
   </h1>
   <h2 class="secondary-heading">
-    Referrer Skip List Demo
+    UTM parameters Demo
   </h2>
     
   <div class="url-container">
@@ -37,19 +37,17 @@
       <pre><code class="language-js">
         //Initializing Smart Script arguments
         var oneLinkURL = "https://engmntqa.onelink.me/LtRd/";
-        var mediaSource = {keys: ["inmedia"]};
-        var campaign = {keys: ["incmp"]};
-        var referrerSkipList = ["facebook"];
+        var mediaSource = {keys: ["inmedia", "utm_source"]};
+        var campaign = {keys: ["incmp", "utm_campaign"]};
 
-        //Function is embedded on the window object in a global parameter called window.AF_SMART_SCRIPT.
+        //Calling the function after embedding the code will be through a global parameter on the window object called window.AF_SMART_SCRIPT
         //Onelink URL is generated
         var result = window.AF_SMART_SCRIPT.generateOneLinkURL({
-          oneLinkURL: oneLinkURL,
+          oneLinkURL,
           afParameters:{
             mediaSource: mediaSource,
             campaign: campaign,
-          },
-          referrerSkipList: referrerSkipList
+          }
         })
       </code></pre>
     </div>
@@ -69,11 +67,6 @@
         <img src="../images/play_store.png" alt="play store link">
     </a>
   </div>
-  <!-- Force this page HTTP referrer for testing purposes] -->
-  <script type="text/javascript" >
-  Object.defineProperty(document, "referrer", {get : function(){ return "came from facebook.il"; }});
-  </script>
-
   <script type="text/javascript" src="../scripts/onelink-smart-script-v2.0.0.js"></script>
   <script type="text/javascript">
     window.onload = function () {
@@ -81,20 +74,18 @@
 
       //Initializing Smart Script arguments
       var oneLinkURL = "https://engmntqa.onelink.me/LtRd/";
-      var mediaSource = {keys: ["inmedia"]};
-      var campaign = {keys: ["incmp"]};
-      var referrerSkipList = ["facebook"];
+      var mediaSource = {keys: ["inmedia","utm_source"]};
+      var campaign = {keys: ["incmp", "utm_campaign"]};
 
       //Function is embedded on the window object in a global parameter called window.AF_SMART_SCRIPT.
       //Onelink URL is generated
       var result = window.AF_SMART_SCRIPT.generateOneLinkURL({
-        oneLinkURL: oneLinkURL,
+        oneLinkURL,
         afParameters:{
           mediaSource: mediaSource,
           campaign: campaign,
-        },
-        referrerSkipList: referrerSkipList
-      })  
+        }
+      }) 
       
       var result_url = result.clickURL;
       if (result_url) {

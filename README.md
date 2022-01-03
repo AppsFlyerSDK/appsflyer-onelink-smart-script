@@ -1,3 +1,5 @@
+## Smart-Script V2
+
 ## Overview
 **At a glance:** Use OneLink Smart Script to generate URLs that get embedded behind a button on your mobile website.
 
@@ -13,13 +15,18 @@ Can be used for deep linking.
 Runs seamlessly on any webpage or landing page.
 
 Table of contents: 
-- [Script](scripts/onelink-smart-script.js)
+- [Smart Script latest version](https://onelinksmartscript.appsflyer.com/onelink-smart-script-v2.0.0.js)
+- [Smart Script latest version - local copy](scripts/onelink-smart-script-v2.0.0.js)
 - Sample use cases
-  - [Basic URL](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/basic_url.html?af_c=gogo&af_pid=email)
-  - [UTM Parameters](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/utm_params.html?utm_source=email&utm_campaign=summer_sale)
-  - [Static PID and campaign values](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/static_val.html?af_not_c=gogo&af_not_pid=email) 
-  - [Override PID](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/override_pid.html?af_pid=twitter&af_c=big_social)
-  - [Google Click ID](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/gclid.html?af_pid=sms&af_c=candles&gclid=1a2b3c)
-  - [Set OneLink parameters](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/setters.html?af_c=gogo&af_pid=email)
-  - [Set AppsFlyer parameters](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/set_af_params.html?af_c=gogo&af_pid=email&partner_name=bigagency)
-  - [Skip List](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/skip_list.html?original_campaign=origcamp&original_pid=origpid)
+  - [Single Key](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/single_key.html?incmp=gogo&inmedia=email)
+  - [Multiple Keys](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/multiple_keys.html?incmp11=gogo11&inmedia22=email22)
+  - [Override media source](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/override_mediasource.html?inmedia=old_value)
+  - [Media source default value](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/mediasource_default_value.html?inmedia_found=orig_media_value)
+  - [Forced default values](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/forced_default_values.html?inmedia_found=plain_media_source)
+  - [UTM Parameters](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/utm_parameters.html?utm_campaign=mycmpn&utm_source=mysource)
+  - [Google Click ID](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/google_clickid.html?inmedia=email&gclid=1a2b3c&keyword=sale%2Bboat)
+  - [Facebook Click ID](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/facebook_clickid.html?inmedia=email&fbclid=7hjy89)
+  - [OneLink and attribution parameters](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/onelink_parameters.html?inmedia=email&dp_dest=apples&inchnl=this_channel&promo=buy99)
+  - [OneLink custom parameters](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/onelink_custom_parameters.html?inmedia=email&dp_dest=apples&pageid=2g4f&productid=shirt12&partner=bigagency)
+  - [Skip List](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/skip_list.html?incmp=gogo&inmedia=email)
+  - [Google Tag Manager](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/google_tag_manager.html?my_source=email&app_dest=planes&typeid=b787&msg_id=f7h8)
