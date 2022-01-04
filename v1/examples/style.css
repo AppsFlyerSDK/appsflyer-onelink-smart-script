@@ -1,0 +1,96 @@
+/* CSS files add styling rules to your content */
+
+body {
+  font-family: helvetica, arial, sans-serif;
+  padding: 40px;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.column img {
+  width: 70%;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+h1 {
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 70px;
+  line-height: 80px;
+  color: #00a0e0;
+}
+
+h2 {
+  font-family: sans-serif;
+  font-style: normal;
+  font-size: 45px;
+  color: gray;
+}
+
+.storebox {
+  position: relative;
+  margin: 15px 15px 1px 30px;
+}
+
+.stores-wrapper {
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+}
+.stores-wrapper img {
+  width: 400px;
+}
+.appstore-image {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.storebox img {
+  border-radius: 15px;
+  width: 70%;
+}
+
+.present_url {
+  word-break: break-all;
+  position: relative;
+  padding: 40px;
+  border: 1px solid gray;
+  border-radius: 15px;
+  font-size: 30px;
+  height: 300px;
+}
+.url-container {
+  display: flex;
+  flex-direction: column;
+}
+.input_url-container {
+  display: flex;
+  flex-direction: column;
+}
+.output_url-container {
+  display: flex;
+  flex-direction: column;
+}
+#input_url {
+  width: 100%;
+}
+#output_url {
+  width: 100%;
+  height: 400px;
+}
