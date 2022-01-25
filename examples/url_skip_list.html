@@ -1,6 +1,6 @@
-<!-- This example will demonstare converting a URL to OneLink URL using Facebook click id -->
-<!-- Calling URL: https://appsflyersdk.github.io/af-onelink-smart-script/examples/facebook_clickid.html?inmedia=email&fbclid=7hjy89 -->
-<!-- Expected OneLink URL: https://engmntqa.onelink.me/LtRd/?af_js_web=true&af_ss_ver=2&pid=email&af_sub2=7hjy89 -->
+<!-- This example will demonstare how the script will skip and exit if the incoming url contains a string in the urlSkipList -->
+<!-- Calling URL: https://appsflyersdk.github.io/af-onelink-smart-script/examples/url_skip_list.html?incmp=gogo&inmedia=email&af_redirect=true -->
+<!-- Expected OneLink URL: *** Script will return null *** -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,12 +18,11 @@
       <img src="../images/onelinklogo.png" alt="OneLink logo">
     </div>
   </div>
-
   <h1 class="primary-heading">
     OneLink Smart Script V2
   </h1>
   <h2 class="secondary-heading">
-    Facebook Click ID Demo
+    URL skip list Demo
   </h2>
   <div class="url-container">
     <div class="input_url-container">
@@ -37,17 +36,18 @@
         //Initializing Smart Script arguments
         var oneLinkURL = "https://engmntqa.onelink.me/LtRd/";
         var mediaSource = {keys: ["inmedia"]};
-        // Facebook clickid is placed in af_sub2
-        var afSub2 = {keys: ["fbclid"], defaultValue: "no_fbclid"};
+        var campaign = {keys: ["incmp"]};
+        var urlSkipList = ["af_redirect"];
 
-        //Function is embedded on the window object in a global parameter called window.AF_SMART_SCRIPT.
+        //Calling the function after embedding the code will be through a global parameter on the window object called window.AF_SMART_SCRIPT
         //Onelink URL is generated
         var result = window.AF_SMART_SCRIPT.generateOneLinkURL({
           oneLinkURL,
           afParameters:{
             mediaSource: mediaSource,
-            afSub2: afSub2
-          }
+            campaign: campaign,
+          },
+          urlSkipList: urlSkipList
         })
       </code></pre>
     </div>
@@ -62,6 +62,7 @@
     <a id="ios_link" href="https://apps.apple.com/us/app/my-device-id-by-appsflyer/id1192323960">
         <img class="appstore-image" src="../images/app_store.png" alt="app store link" >
     </a>
+    
     <a id="andrd_link" class="appstore-image" href="https://play.google.com/store/apps/details?id=com.appsflyer.android.deviceid">
         <img src="../images/play_store.png" alt="play store link">
     </a>
@@ -74,17 +75,18 @@
       //Initializing Smart Script arguments
       var oneLinkURL = "https://engmntqa.onelink.me/LtRd/";
       var mediaSource = {keys: ["inmedia"]};
-      // Facebook clickid is placed in af_sub2
-      var afSub2 = {keys: ["fbclid"], defaultValue: "no_fbclid"};
+      var campaign = {keys: ["incmp"]};
+      var urlSkipList = ["af_redirect"];
 
-      //Function is embedded on the window object in a global parameter called window.AF_SMART_SCRIPT.
+      //Calling the function after embedding the code will be through a global parameter on the window object called window.AF_SMART_SCRIPT
       //Onelink URL is generated
       var result = window.AF_SMART_SCRIPT.generateOneLinkURL({
         oneLinkURL,
         afParameters:{
           mediaSource: mediaSource,
-          afSub2: afSub2
-        }
+          campaign: campaign,
+        },
+        urlSkipList: urlSkipList
       })  
       
       var result_url = result.clickURL;
@@ -93,7 +95,6 @@
             document.getElementById('ios_link').setAttribute('href', result_url);
             document.getElementById('output_url').innerHTML = result_url;
       }
-
     };
   </script>
   <script src="scripts/prism.js"></script>
