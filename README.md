@@ -15,8 +15,8 @@ Can be used for deep linking.
 Runs seamlessly on any webpage or landing page.
 
 Table of contents: 
-- [Smart Script latest version](https://onelinksmartscript.appsflyer.com/onelink-smart-script-v2.0.0.js)
-- [Smart Script latest version - local copy](scripts/onelink-smart-script-v2.0.0.js)
+- [Smart Script latest version](https://onelinksmartscript.appsflyer.com/onelink-smart-script-v2.0.1.js)
+- [Smart Script latest version - local copy](scripts/onelink-smart-script-v2.0.1.js)
 - Sample use cases
   - [Single Key](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/single_key.html?incmp=gogo&inmedia=email)
   - [Multiple Keys](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/multiple_keys.html?incmp11=gogo11&inmedia22=email22)
@@ -28,5 +28,6 @@ Table of contents:
   - [Facebook Click ID](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/facebook_clickid.html?inmedia=email&fbclid=7hjy89)
   - [OneLink and attribution parameters](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/onelink_parameters.html?inmedia=email&dp_dest=apples&inchnl=this_channel&promo=buy99)
   - [OneLink custom parameters](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/onelink_custom_parameters.html?inmedia=email&dp_dest=apples&pageid=2g4f&productid=shirt12&partner=bigagency)
-  - [Skip List](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/skip_list.html?incmp=gogo&inmedia=email)
+  - [Referrer Skip List](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/referrer_skip_list.html?incmp=gogo&inmedia=email)
+  - [URL Skip List](https://appsflyersdk.github.io/af-onelink-smart-script/examples/url_skip_list.html?incmp=gogo&inmedia=email&af_redirect=true)
   - [Google Tag Manager](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/google_tag_manager.html?my_source=email&app_dest=planes&typeid=b787&msg_id=f7h8)

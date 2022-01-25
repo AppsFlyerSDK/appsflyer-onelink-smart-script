@@ -1,6 +1,6 @@
-<!-- This example will demonstare converting a URL to OneLink URL searching for a single key for media_source and campaign -->
+<!-- This example will demonstare how the script will skip and exit if the HTTP referrer contains a string in the referrerSkipList -->
 <!-- Calling URL: https://appsflyersdk.github.io/af-onelink-smart-script/examples/skip_list.html?incmp=gogo&inmedia=email -->
-<!-- Expected OneLink URL: https://engmntqa.onelink.me/LtRd/?pid=email&c=gogo&af_js_web=true&af_ss_ver=2 -->
+<!-- Expected OneLink URL: *** Script will return null *** -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -74,7 +74,7 @@
   Object.defineProperty(document, "referrer", {get : function(){ return "came from facebook.il"; }});
   </script>
 
-  <script type="text/javascript" src="../scripts/onelink-smart-script-v2.0.0.js"></script>
+  <script type="text/javascript" src="../scripts/onelink-smart-script-v2.0.1.js"></script>
   <script type="text/javascript">
     window.onload = function () {
       document.getElementById('input_url').innerHTML = window.location.href;
