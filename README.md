@@ -29,5 +29,5 @@ Table of contents:
   - [OneLink and attribution parameters](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/onelink_parameters.html?inmedia=email&dp_dest=apples&inchnl=this_channel&promo=buy99)
   - [OneLink custom parameters](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/onelink_custom_parameters.html?inmedia=email&dp_dest=apples&pageid=2g4f&productid=shirt12&partner=bigagency)
   - [Referrer Skip List](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/referrer_skip_list.html?incmp=gogo&inmedia=email)
-  - [URL Skip List](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/url_skip_list.html?incmp=gogo&inmedia=email&af_redirect=true)
+  - [URL Skip List](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/url_skip_list.html?incmp=gogo&inmedia=email&af_r=hotel.me)
   - [Google Tag Manager](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/google_tag_manager.html?my_source=email&app_dest=planes&typeid=b787&msg_id=f7h8)
