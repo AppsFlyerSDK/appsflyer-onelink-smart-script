@@ -32,3 +32,4 @@ Table of contents:
   - [URL Skip List](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/url_skip_list.html?incmp=gogo&inmedia=email&af_r=hotel.me)
   - [Google Tag Manager](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/google_tag_manager.html?my_source=email&app_dest=planes&typeid=b787&msg_id=f7h8)
   - [QR Code](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/qr_code.html?incmp=gogo&inmedia=email)
+  - [Google Tag Manager /w QR Code](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/google_tag_manager_qr.html?my_source=email&app_dest=planes&typeid=b787&msg_id=f7h8)
