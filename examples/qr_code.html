@@ -1,6 +1,6 @@
-<!-- This example will demonstare how the script will skip and exit if the incoming url contains a string in the urlSkipList -->
-<!-- Calling URL: https://appsflyersdk.github.io/af-onelink-smart-script/examples/url_skip_list.html?incmp=gogo&inmedia=email&af_r=hotel.me -->
-<!-- Expected OneLink URL: *** Script will return null *** -->
+<!-- This example will demonstare diplaying the Smart Script result in QR Code -->
+<!-- Calling URL: https://appsflyersdk.github.io/af-onelink-smart-script/examples/qr_code.html?incmp=gogo&inmedia=email -->
+<!-- Expected OneLink URL: https://engmntqa.onelink.me/LtRd/?pid=email&c=gogo&af_js_web=true&af_ss_ver=2_1_0&af_ss_qr=true -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +22,7 @@
     OneLink Smart Script V2
   </h1>
   <h2 class="secondary-heading">
-    URL skip list Demo
+    QR Code Demo
   </h2>
   <div class="url-container">
     <div class="input_url-container">
@@ -37,35 +37,25 @@
         var oneLinkURL = "https://engmntqa.onelink.me/LtRd/";
         var mediaSource = {keys: ["inmedia"]};
         var campaign = {keys: ["incmp"]};
-        var urlSkipList = ["af_r"];
 
-        //Calling the function after embedding the code will be through a global parameter on the window object called window.AF_SMART_SCRIPT
+        //Function is embedded on the window object in a global parameter called window.AF_SMART_SCRIPT.
         //Onelink URL is generated
         var result = window.AF_SMART_SCRIPT.generateOneLinkURL({
           oneLinkURL,
           afParameters:{
             mediaSource: mediaSource,
             campaign: campaign,
-          },
-          urlSkipList: urlSkipList
+          }
         })
       </code></pre>
     </div>
     <div class="output_url-container">
+      <div id="my_qr_code_div_id"></div>
       <h2>Output URL</h2>
       <textarea id="output_url" class="present_url">
         No output from script
       </textarea>
     </div>
-  </div>
-  <div class="stores-wrapper">
-    <a id="ios_link" href="https://apps.apple.com/us/app/my-device-id-by-appsflyer/id1192323960">
-        <img class="appstore-image" src="../images/app_store.png" alt="app store link" >
-    </a>
-    
-    <a id="andrd_link" class="appstore-image" href="https://play.google.com/store/apps/details?id=com.appsflyer.android.deviceid">
-        <img src="../images/play_store.png" alt="play store link">
-    </a>
   </div>
   <script type="text/javascript" src="../scripts/onelink-smart-script-v2.1.0.js"></script>
   <script type="text/javascript">
@@ -76,7 +66,6 @@
       var oneLinkURL = "https://engmntqa.onelink.me/LtRd/";
       var mediaSource = {keys: ["inmedia"]};
       var campaign = {keys: ["incmp"]};
-      var urlSkipList = ["af_r"];
 
       //Calling the function after embedding the code will be through a global parameter on the window object called window.AF_SMART_SCRIPT
       //Onelink URL is generated
@@ -85,15 +74,13 @@
         afParameters:{
           mediaSource: mediaSource,
           campaign: campaign,
-        },
-        urlSkipList: urlSkipList
+        }
       })  
       
       var result_url = result.clickURL;
       if (result_url) {
-            document.getElementById('andrd_link').setAttribute('href', result_url);
-            document.getElementById('ios_link').setAttribute('href', result_url);
             document.getElementById('output_url').innerHTML = result_url;
+            window.AF_SMART_SCRIPT.displayQrCode("my_qr_code_div_id");
       }
     };
   </script>

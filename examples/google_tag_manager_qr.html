@@ -1,15 +1,28 @@
-<!-- This example will demonstare how the script will skip and exit if the incoming url contains a string in the urlSkipList -->
-<!-- Calling URL: https://appsflyersdk.github.io/af-onelink-smart-script/examples/url_skip_list.html?incmp=gogo&inmedia=email&af_r=hotel.me -->
-<!-- Expected OneLink URL: *** Script will return null *** -->
+<!-- This example will demonstare converting a URL to OneLink URL while configuring OneLink custom parameters -->
+<!-- Calling URL: https://appsflyersdk.github.io/af-onelink-smart-script/examples/google_tag_manager_qr.html?my_source=email&app_dest=planes&typeid=b787&msg_id=f7h8 -->
+<!-- Expected OneLink URL: https://engmntqa.onelink.me/LtRd/?af_js_web=true&af_ss_ver=2_1_0&af_ss_qr=true&pid=email&deep_link_value=planes&af_sub4=f7h8&deep_link_sub1=b787 -->
 <!DOCTYPE html>
 <html>
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-524BJCJ');</script>
+  <!-- End Google Tag Manager -->
+
   <!-- import the webpage's stylesheet -->
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="themes/prism.css"
   />
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-524BJCJ"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <div class="row">
     <div class="column">
       <img src="../images/appsflyerlogo.png" alt="AppsFlyer logo">
@@ -22,8 +35,9 @@
     OneLink Smart Script V2
   </h1>
   <h2 class="secondary-heading">
-    URL skip list Demo
+    OneLink custom parameters Demo
   </h2>
+    
   <div class="url-container">
     <div class="input_url-container">
       <h2>Input URL</h2>
@@ -32,22 +46,29 @@
       </textarea>
     </div>
     <div>
+      <h3>Code ran by Google Tag manager</h3>
       <pre><code class="language-js">
         //Initializing Smart Script arguments
         var oneLinkURL = "https://engmntqa.onelink.me/LtRd/";
-        var mediaSource = {keys: ["inmedia"]};
-        var campaign = {keys: ["incmp"]};
-        var urlSkipList = ["af_r"];
+        var mediaSource = {keys: ["my_source"], defaultValue: "noMediaSource"};
+        var deepLinkValue = {keys: ["app_dest"], defaultValue: "default_view"};
+        // Setting an attribution parameter
+        var afSub4 = {keys: ["msg_id"], defaultValue: "no_msg_id"};
+        // Setting OneLink custom parameter
+        var deepLinkSub1 = {paramKey: "deep_link_sub1", keys: ["typeid"], defaultValue: "1a1a"};
 
-        //Calling the function after embedding the code will be through a global parameter on the window object called window.AF_SMART_SCRIPT
+        //Function is embedded on the window object in a global parameter called window.AF_SMART_SCRIPT.
         //Onelink URL is generated
-        var result = window.AF_SMART_SCRIPT.generateOneLinkURL({
+        window.AF_SMART_SCRIPT_RESULT = window.AF_SMART_SCRIPT.generateOneLinkURL({
           oneLinkURL,
           afParameters:{
             mediaSource: mediaSource,
-            campaign: campaign,
-          },
-          urlSkipList: urlSkipList
+            deepLinkValue: deepLinkValue,
+            afSub4: afSub4,
+            afCustom: [
+              deepLinkSub1
+            ]
+          }
         })
       </code></pre>
     </div>
@@ -57,6 +78,7 @@
         No output from script
       </textarea>
     </div>
+    <div id="my_qr_code_div_id"></div>
   </div>
   <div class="stores-wrapper">
     <a id="ios_link" href="https://apps.apple.com/us/app/my-device-id-by-appsflyer/id1192323960">
@@ -67,34 +89,18 @@
         <img src="../images/play_store.png" alt="play store link">
     </a>
   </div>
-  <script type="text/javascript" src="../scripts/onelink-smart-script-v2.1.0.js"></script>
   <script type="text/javascript">
     window.onload = function () {
       document.getElementById('input_url').innerHTML = window.location.href;
-
-      //Initializing Smart Script arguments
-      var oneLinkURL = "https://engmntqa.onelink.me/LtRd/";
-      var mediaSource = {keys: ["inmedia"]};
-      var campaign = {keys: ["incmp"]};
-      var urlSkipList = ["af_r"];
-
-      //Calling the function after embedding the code will be through a global parameter on the window object called window.AF_SMART_SCRIPT
-      //Onelink URL is generated
-      var result = window.AF_SMART_SCRIPT.generateOneLinkURL({
-        oneLinkURL,
-        afParameters:{
-          mediaSource: mediaSource,
-          campaign: campaign,
-        },
-        urlSkipList: urlSkipList
-      })  
       
-      var result_url = result.clickURL;
+      var result_url = AF_SMART_SCRIPT_RESULT.clickURL;
       if (result_url) {
             document.getElementById('andrd_link').setAttribute('href', result_url);
             document.getElementById('ios_link').setAttribute('href', result_url);
             document.getElementById('output_url').innerHTML = result_url;
+            window.AF_SMART_SCRIPT.displayQrCode("my_qr_code_div_id");            
       }
+
     };
   </script>
   <script src="scripts/prism.js"></script>
