@@ -15,7 +15,7 @@ Can be used for deep linking.
 Runs seamlessly on any webpage or landing page.
 
 Table of contents: 
-- [Smart Script latest version](https://onelinksmartscript.appsflyer.com/onelink-smart-script-v2.1.1.js)
+- [Smart Script latest version](https://onelinksmartscript.appsflyer.com/onelink-smart-script-latest.js)
 - [Smart Script latest version - local copy](scripts/onelink-smart-script-v2.1.1.js)
 - Sample use cases
   - [Single Key](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/single_key.html?incmp=gogo&inmedia=email)
