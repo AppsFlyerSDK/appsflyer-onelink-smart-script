@@ -2254,6 +2254,6 @@
  
    window.AF_SMART_SCRIPT = {
      generateOneLinkURL: generateOneLinkURL,
-     version: '2_1_0'
+     version: '2_1_1'
    };
  })();
