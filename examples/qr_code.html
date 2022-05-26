@@ -29,7 +29,7 @@
     OneLink Smart Script V2
   </h1>
   <h2 class="secondary-heading">
-    Single Key Demo
+    QR Code Demo
   </h2>
   <div class="url-container">
     <div class="input_url-container">
@@ -62,6 +62,7 @@
             result_url = result.clickURL;            
             document.getElementById('andrd_link').setAttribute('href', result_url);
             document.getElementById('ios_link').setAttribute('href', result_url);
+            window.AF_SMART_SCRIPT.displayQrCode("my_qr_code_div_id");
       }      
       document.getElementById('output_url').innerHTML = result_url;
       
@@ -70,6 +71,7 @@
         <input type="button" value="Run Code" class="code_button" onclick="runTxtAreaCode()" />
     </div>
     <div class="output_url-container">
+      <div id="my_qr_code_div_id"></div>
       <h2>Output URL</h2>
       <textarea id="output_url" class="present_url">
         No output from script
