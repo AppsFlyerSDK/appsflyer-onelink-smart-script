@@ -1,13 +1,21 @@
 <!-- This example will demonstare converting a URL to OneLink URL using google click id -->
 <!-- Calling URL: https://appsflyersdk.github.io/af-onelink-smart-script/examples/google_clickid.html?inmedia=email&gclid=1a2b3c&keyword=sale%2Bboat -->
-<!-- Expected OneLink URL: https://engmntqa.onelink.me/LtRd/?af_js_web=true&af_ss_ver=2_1_1&pid=email&af_sub4=1a2b3c&af_keywords=sale+boat -->
+<!-- Expected OneLink URL: https://engmntqa.onelink.me/LtRd/?af_js_web=true&af_ss_ver=2_1_0&pid=email&af_sub4=1a2b3c&af_keywords=sale+boat -->
+
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- import the webpage's stylesheet -->
+  <base herf="/">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="themes/prism.css"
+  <link rel="stylesheet" href="themes/prism.css">
+  <link rel="stylesheet" href="themes/prism-line-numbers.css">
+  <link rel="stylesheet" href="themes/prism-live.css"
   />
+  <style>
+    foo {
+      background: black;
+    }
+  </style>
 </head>
 <body>
   <div class="row">
@@ -18,14 +26,12 @@
       <img src="../images/onelinklogo.png" alt="OneLink logo">
     </div>
   </div>
-
   <h1 class="primary-heading">
     OneLink Smart Script V2
   </h1>
   <h2 class="secondary-heading">
-    Google Click ID Demo
+    Single Key Demo
   </h2>
-    
   <div class="url-container">
     <div class="input_url-container">
       <h2>Input URL</h2>
@@ -34,23 +40,36 @@
       </textarea>
     </div>
     <div>
-      <pre><code class="language-js">
-        //Initializing Smart Script arguments
-        var oneLinkURL = "https://engmntqa.onelink.me/LtRd/";
-        var mediaSource = {keys: ["inmedia"]};
-        var googleClickIdKey = "af_sub4";
+      <pre>
+      <textarea id="input_code_for_run" class="prism-live line-numbers language-js fill" spellcheck="false">
 
-        //Calling the function after embedding the code will be through a global parameter 
-        //on the window object called window.AF_SMART_SCRIPT
-        //Onelink URL is generated
-        var result = window.AF_SMART_SCRIPT.generateOneLinkURL({
-          oneLinkURL,
-          afParameters:{
-            mediaSource: mediaSource,
-            googleClickIdKey: googleClickIdKey
-          }
-        })
-      </code></pre>
+      //Initializing Smart Script arguments
+      var oneLinkURL = "https://engmntqa.onelink.me/LtRd/";
+      var mediaSource = {keys: ["inmedia"]};
+      var googleClickIdKey = "af_sub4";
+
+      //Calling the function after embedding the code will be through a global parameter 
+      //on the window object called window.AF_SMART_SCRIPT
+      //Onelink URL is generated
+      var result = window.AF_SMART_SCRIPT.generateOneLinkURL({
+        oneLinkURL,
+        afParameters:{
+          mediaSource: mediaSource,
+          googleClickIdKey: googleClickIdKey
+        }
+      })
+      
+      var result_url = "No output from script"
+      if (result) {
+            result_url = result.clickURL;            
+            document.getElementById('andrd_link').setAttribute('href', result_url);
+            document.getElementById('ios_link').setAttribute('href', result_url);
+      }      
+      document.getElementById('output_url').innerHTML = result_url;
+      
+      </textarea>
+  </pre>
+        <input type="button" value="Run Code" class="code_button" onclick="runTxtAreaCode()" />
     </div>
     <div class="output_url-container">
       <h2>Output URL</h2>
@@ -68,38 +87,28 @@
         <img src="../images/play_store.png" alt="play store link">
     </a>
   </div>
-  <script type="text/javascript" src="../scripts/onelink-smart-script-v2.1.1.js"></script>
-  <script type="text/javascript">
-    window.onload = function () {
-      document.getElementById('input_url').innerHTML = window.location.href;
-
-      //Initializing Smart Script arguments
-      var oneLinkURL = "https://engmntqa.onelink.me/LtRd/";
-      var mediaSource = {keys: ["inmedia"]};
-      var googleClickIdKey = "af_sub4"
-
-      //Function is embedded on the window object in a global parameter called window.AF_SMART_SCRIPT.
-      //Onelink URL is generated
-      var result = window.AF_SMART_SCRIPT.generateOneLinkURL({
-        oneLinkURL,
-        afParameters:{
-          mediaSource: mediaSource,
-          googleClickIdKey: googleClickIdKey
-        }
-      })  
-      
-      var result_url = result.clickURL;
-      if (result_url) {
-            document.getElementById('andrd_link').setAttribute('href', result_url);
-            document.getElementById('ios_link').setAttribute('href', result_url);
-            document.getElementById('output_url').innerHTML = result_url;
-      }
-
-    };
-  </script>
+  <script type="text/javascript" src="../scripts/onelink-smart-script-v2.1.0.js"></script>
   <script src="scripts/prism.js"></script>
+  <script src="scripts/prism-line-numbers.js"></script>
+  <script src="scripts/prism-live.js"></script>
+  <script>
+
+    // load the input URL to thr input_url textArea
+    document.getElementById('input_url').innerHTML = window.location.href;
+
+    // set the onClicke to run the code in the code editor
+    function runTxtAreaCode() {
+        var headID = document.getElementsByTagName("head")[0];
+        var newScript = document.createElement("script");
+        newScript.type = "text/javascript";
+        newScript.text = document.getElementById("input_code_for_run").value;
+        headID.appendChild(newScript);
+    };
+
+  </script>
 </body>
 
 </body>
 </html>
- 
+
+
