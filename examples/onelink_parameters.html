@@ -44,7 +44,8 @@
 
       //Initializing Smart Script arguments
       var oneLinkURL = "https://engmntqa.onelink.me/LtRd/";
-      var mediaSource = {keys: ["inmedia"]};
+      // If a media source key is NOT FOUND on the link and NO default value is found, the script will return a null string 
+      var mediaSource = {keys: ["inmedia"], defaultValue: "my_media_default_source"};
       var channel = {keys: ["inchnl"]};
       var deepLinkValue = {keys: ["dp_dest"], defaultValue: "peaches"};
       var afSub3 = {keys: ["promo"]};

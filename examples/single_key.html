@@ -45,7 +45,8 @@
 
       //Initializing Smart Script arguments
       var oneLinkURL = "https://engmntqa.onelink.me/LtRd/";
-      var mediaSource = {keys: ["inmedia"]};
+      // If a media source key is NOT FOUND on the link and NO default value is found, the script will return a null string 
+      var mediaSource = {keys: ["inmedia"], defaultValue: "my_media_default_source"};
       var campaign = {keys: ["incmp"]};
   
       //Calling the function after embedding the code will be through a global parameter on the window object called window.AF_SMART_SCRIPT
