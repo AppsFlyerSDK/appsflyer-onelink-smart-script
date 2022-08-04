@@ -66,7 +66,8 @@
             result_url = result.clickURL;            
             document.getElementById('andrd_link').setAttribute('href', result_url);
             document.getElementById('ios_link').setAttribute('href', result_url);
-            // The following command will fire the impression 
+            // The following command will fire the impression.
+            // The impression will fire to https://impressions.onelink.me//.... 
             window.AF_SMART_SCRIPT.fireImpressionsLink();
       }      
       document.getElementById('output_url').innerHTML = result_url;
@@ -77,6 +78,9 @@
     </div>
     <div class="output_url-container">
       <h2>Output URL</h2>
+      <h3>
+        ** Please note this is the OneLink URL created, not the impressions link fired**
+      </h3>
       <textarea id="output_url" class="present_url">
         No output from script
       </textarea>
