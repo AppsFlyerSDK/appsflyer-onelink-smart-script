@@ -114,3 +114,8 @@ h2 {
           box-shadow: inset 0px 0px 5px #5baac7;
    outline: none;
 }
+
+#my_qr_code_div_id canvas { 
+  height: 200px;
+  width: 200px;
+}

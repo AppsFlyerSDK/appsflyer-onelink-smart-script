@@ -64,6 +64,11 @@
             document.getElementById('andrd_link').setAttribute('href', result_url);
             document.getElementById('ios_link').setAttribute('href', result_url);
             window.AF_SMART_SCRIPT.displayQrCode("my_qr_code_div_id");
+            //The size of the QR code is defined in the CSS file under #my_qr_code_div_id
+            // #my_qr_code_div_id canvas { 
+            //  height: 200px;
+            //  width: 200px;
+            //}
       }      
       document.getElementById('output_url').innerHTML = result_url;
       
