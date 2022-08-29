@@ -3,6 +3,15 @@
   <head>
     <base herf="/">
     <link rel="stylesheet" href="./style_test_page.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-33607448-26"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-33607448-26');
+    </script>
   </head>
   <body>
     <div class="header">
@@ -61,6 +70,13 @@
           } else {
             document.getElementById('error-code').style.display = 'block';
             document.getElementById('input_code_for_run').style.borderColor = 'red';
+            // Send Google Analytics - Run Script No Result
+            ga('send', {
+              hitType: 'event',
+              eventCategory: 'SmartScriptTestPage',
+              eventAction: 'RunScript',
+              eventLabel: 'ErrorNoResult'
+            });
           }
           if (result_url) {
             document.getElementById("output_url").value = result_url
@@ -73,10 +89,26 @@
           if (document.getElementById("input_code_for_run").value === "") {
             document.getElementById('clear-btn').disabled = true;
           }
+
+          // Send Google Analytics - Run Script Successful
+          ga('send', {
+            hitType: 'event',
+            eventCategory: 'SmartScriptTestPage',
+            eventAction: 'RunScript',
+            eventLabel: 'Success'
+          });
         } catch (error) {
           console.log("🚀 ~ file: index13.html ~ line 77 ~ runTxtAreaCode ~ error", error)
           document.getElementById('error-code').style.display = 'block';
           document.getElementById('input_code_for_run').style.borderColor = 'red';
+          
+          // Send Google Analytics - Run Script Error Bad Script
+          ga('send', {
+            hitType: 'event',
+            eventCategory: 'SmartScriptTestPage',
+            eventAction: 'RunScript',
+            eventLabel: 'ErrorBadScript'
+          });
         }
       };
 
@@ -86,6 +118,13 @@
         document.getElementById('clear-btn').disabled = true;
         document.getElementById('error-code').style.display = 'none';
         document.getElementById('input_code_for_run').style.borderColor = '#E5E8ED';
+
+        // Send Google Analytics - Clear Script
+          ga('send', {
+            hitType: 'event',
+            eventCategory: 'SmartScriptTestPage',
+            eventAction: 'ClearScript',
+        });
       };
 
       function success() {
