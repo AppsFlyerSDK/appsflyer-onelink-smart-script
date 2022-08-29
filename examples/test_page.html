@@ -71,15 +71,18 @@
             document.getElementById('error-code').style.display = 'block';
             document.getElementById('input_code_for_run').style.borderColor = 'red';
             // Send Google Analytics - Run Script No Result
-            ga('send', {
-              hitType: 'event',
-              eventCategory: 'SmartScriptTestPage',
-              eventAction: 'RunScript',
-              eventLabel: 'ErrorNoResult'
+            gtag('event', 'RunScript', {
+              'event_category' : 'SmartScriptTestPage',
+              'event_label' : 'ErrorNoResult'
             });
           }
           if (result_url) {
             document.getElementById("output_url").value = result_url
+            // Send Google Analytics - Run Script Successful
+            gtag('event', 'RunScript', {
+              'event_category' : 'SmartScriptTestPage',
+              'event_label' : 'Success'
+            });
           }
           if (document.getElementById("input_url").value === "" || document.getElementById("input_code_for_run").value === "") {
             document.getElementById('run-code-btn').disabled = true;
@@ -90,24 +93,15 @@
             document.getElementById('clear-btn').disabled = true;
           }
 
-          // Send Google Analytics - Run Script Successful
-          ga('send', {
-            hitType: 'event',
-            eventCategory: 'SmartScriptTestPage',
-            eventAction: 'RunScript',
-            eventLabel: 'Success'
-          });
         } catch (error) {
           console.log("🚀 ~ file: index13.html ~ line 77 ~ runTxtAreaCode ~ error", error)
           document.getElementById('error-code').style.display = 'block';
           document.getElementById('input_code_for_run').style.borderColor = 'red';
           
           // Send Google Analytics - Run Script Error Bad Script
-          ga('send', {
-            hitType: 'event',
-            eventCategory: 'SmartScriptTestPage',
-            eventAction: 'RunScript',
-            eventLabel: 'ErrorBadScript'
+          gtag('event', 'RunScript', {
+            'event_category' : 'SmartScriptTestPage',
+            'event_label' : 'ErrorBadScript'
           });
         }
       };
