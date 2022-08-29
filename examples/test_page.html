@@ -48,8 +48,8 @@
       // set the onClick to run the code in the code editor
       function runTxtAreaCode() {
         try {
-          window.result= null;
-          window.AF_SMART_SCRIPT_RESULT;
+          window.result = undefined;
+          window.AF_SMART_SCRIPT_RESULT = undefined;
           document.getElementById("output_url").value = "";
           const inputUrl = new URL(document.getElementById("input_url").value);
           const inSearch = inputUrl.search
