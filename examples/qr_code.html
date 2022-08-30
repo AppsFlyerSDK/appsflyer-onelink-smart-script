@@ -15,6 +15,15 @@
       background: black;
     }
   </style>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-33607448-26"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-33607448-26');
+  </script>
 </head>
 <body>
   <div class="row">
@@ -110,6 +119,11 @@
         newScript.type = "text/javascript";
         newScript.text = document.getElementById("input_code_for_run").value;
         headID.appendChild(newScript);
+        // Send Google Analytics - Run Script Successful
+        gtag('event', 'RunScript', {
+              'event_category' : 'SmartScriptQrCode',
+              'event_label' : 'Success'
+            });
     };
 
   </script>

@@ -115,6 +115,11 @@
         newScript.type = "text/javascript";
         newScript.text = document.getElementById("input_code_for_run").value;
         headID.appendChild(newScript);
+        // Send Google Analytics - Run Script Successful
+        gtag('event', 'RunScript', {
+              'event_category' : 'SmartScriptMultipleKeys',
+              'event_label' : 'Success'
+            });
     };
 
   </script>
