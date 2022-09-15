@@ -32,7 +32,7 @@
           <Button onclick="clearInputs()" id="clear-btn" class="clear-btn">Clear</Button>
         </div>
         <pre>
-					<textarea onBlur="success()" onkeyup="success()" id="input_code_for_run"  class="ss-code" placeholder="Enter the Smart Script code you created in the AppsFlyer dashboard."></textarea>
+					<textarea onBlur="success()" onkeyup="success()" id="input_code_for_run"  class="ss-code" placeholder="Drag your generated file or paste the Smart Script code you created in the AppsFlyer dashboard."></textarea>
 				</pre>
         <div id="error-code">Something went wrong. Check your Smart Script and try again</div>
         <Button onclick="runTxtAreaCode()" id="run-code-btn" class="run-code-btn">Run code</Button>
@@ -45,6 +45,21 @@
       </section>
     </div>
     <script>
+      function dropfile(file) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          input_code_for_run.value = e.target.result;
+          success();
+        };
+        reader.readAsText(file, "UTF-8");
+      }
+
+      input_code_for_run.ondrop = function(e) {
+        e.preventDefault();
+        var file = e.dataTransfer.files[0];
+        dropfile(file);
+      };
+
       // set the onClick to run the code in the code editor
       function runTxtAreaCode() {
         try {
