@@ -35,7 +35,7 @@
 					<textarea onBlur="success()" onkeyup="success()" id="input_code_for_run"  class="ss-code" placeholder="Drag your generated file or paste the Smart Script code you created in the AppsFlyer dashboard."></textarea>
 				</pre>
         <div id="error-code">Something went wrong. Check your Smart Script and try again</div>
-        <Button onclick="runTxtAreaCode()" id="run-code-btn" class="run-code-btn">Run code</Button>
+        <Button onclick="runTxtAreaCode()" id="run-code-btn" class="run-code-btn" disabled="true">Run code</Button>
       </section>
       <section class="shadow-box">
         <div class="output_url-container">
@@ -126,6 +126,7 @@
         document.getElementById("input_code_for_run").value = ""
         document.getElementById("output_url").value = ""
         document.getElementById('clear-btn').disabled = true;
+        document.getElementById('run-code-btn').disabled = true;
         document.getElementById('error-code').style.display = 'none';
         document.getElementById('input_code_for_run').style.borderColor = '#E5E8ED';
 
