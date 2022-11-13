@@ -121,13 +121,3 @@ h2 {
   width: 200px;
 }
 
-#input_code_for_run {
-  padding: 1em;
-  width: 80%;
-  height: 120px;
-  resize: none;
-}
-
-#input_code_for_run:focus {
-  outline: 0;
-}
