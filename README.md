@@ -34,3 +34,5 @@ Table of contents:
   - [QR Code](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/qr_code.html?incmp=gogo&inmedia=email)
   - [Google Tag Manager /w QR Code](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/google_tag_manager_qr.html?my_source=email&app_dest=planes&typeid=b787&msg_id=f7h8)
   - [Impressions](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/impressions.html?incmp=gogo&inmedia=email)
+  - [Direct Click URL (CTVs and consoles)](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/direct_click.html?incmp=gogo&inmedia=new_source)
+
