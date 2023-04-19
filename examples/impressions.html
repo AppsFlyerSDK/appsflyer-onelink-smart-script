@@ -73,11 +73,17 @@
       var result_url = "No output from script"
       if (result) {
             result_url = result.clickURL;            
+            console.log(result);
             document.getElementById('andrd_link').setAttribute('href', result_url);
             document.getElementById('ios_link').setAttribute('href', result_url);
             // The following command will fire the impression.
-            // The impression will fire to https://impressions.onelink.me//.... 
-            window.AF_SMART_SCRIPT.fireImpressionsLink();
+            // The impression will fire to https://impressions.onelink.me//....
+            // The wait is a temporary bug fix
+            console.log("Waiting before calling fireImpressionsLink()...");
+            setTimeout(() => {
+              window.AF_SMART_SCRIPT.fireImpressionsLink();
+              console.log("Impression fired"); 
+            }, 1000);            
       }      
       document.getElementById('output_url').innerHTML = result_url;
       
