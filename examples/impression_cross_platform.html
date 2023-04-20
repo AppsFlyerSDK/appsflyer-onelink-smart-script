@@ -1,5 +1,5 @@
 <!-- This example will demonstare shooting an impression for this page -->
-<!-- Calling URL: https://appsflyersdk.github.io/af-onelink-smart-script/examples/impressions.html?incmp=gogo&inmedia=email -->
+<!-- Calling URL: https://appsflyersdk.github.io/af-onelink-smart-script/examples/impressions_cross_platform.html?incmp=gogo&inmedia=email -->
 <!-- Expected OneLink URL: https://engmntqa.onelink.me/coiD/?pid=email&c=gogo&af_js_web=true&af_ss_ver=2_2_0 -->
 
 <!DOCTYPE html>
@@ -39,10 +39,10 @@
     OneLink Smart Script V2
   </h1>
   <h2 class="secondary-heading">
-    Impressions Demo
+    Impressions Demo - Cross Platform!
   </h2>
   <h3>
-    ** Please make sure you run in mobile device (or in Chrome mobile emulator)**
+    **Please make sure the OneLink template supports Cross Platform**
   </h3>
   <div class="url-container">
     <div class="input_url-container">
@@ -56,9 +56,12 @@
       <textarea id="input_code_for_run" class="prism-live line-numbers language-js fill" spellcheck="false">
 
       //Initializing Smart Script arguments
-      var oneLinkURL = "https://engmntqa.onelink.me/coiD/";
+      // ***** The OneLink template MUST have  cross platform *****
+      var oneLinkURL = "https://engmntqa.onelink.me/WyIl/";
       var mediaSource = {keys: ["inmedia"], defaultValue: "my_media_source_default_value"};
       var campaign = {keys: ["incmp"]};
+      // Apart from the template being enabled, the following param MUST be passed
+      var crossPlatformFlag = {paramKey: "af_xplatform", keys: [], defaultValue: "true"}
   
       //Calling the function after embedding the code will be through a global parameter on the window object called window.AF_SMART_SCRIPT
       //Onelink URL is generated
@@ -67,6 +70,9 @@
         afParameters:{
           mediaSource: mediaSource,
           campaign: campaign,
+          afCustom: [
+            crossPlatformFlag
+          ]
         }
       })
       
