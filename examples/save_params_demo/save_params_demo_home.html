@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base herf="/">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    ul.breadcrumb {
+      padding: 10px 16px;
+      list-style: none;
+      background-color: #eee;
+    }
+    ul.breadcrumb li {
+      display: inline;
+      font-size: 18px;
+    }
+    ul.breadcrumb li+li:before {
+      padding: 8px;
+      color: black;
+      content: "/\00a0";
+    }
+    ul.breadcrumb li a {
+      color: #0275d8;
+      text-decoration: none;
+    }
+    ul.breadcrumb li a:hover {
+      color: #01447e;
+      text-decoration: underline;
+    }
+
+    .button {
+      background-color: #00a0e0; /* Green */
+      border: none;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 26px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+  </style>
+  
+</head>
+<body>
+  <div class="row">
+    <div class="column">
+      <img src="../../images/appsflyerlogo.png" alt="AppsFlyer logo">
+    </div>
+    <div class="column" style="text-align:right;">
+      <img src="../../images/onelinklogo.png" alt="OneLink logo">
+    </div>
+  </div>
+  <h2 class="primary-heading">
+    Save Parameters demo - Save from home page
+  </h2>
+  <h3>
+    This is the landing page. Smart script is sourced by no link is generated. 
+    Smart script saves the incoming parameters.
+  </h3>
+  <ul class="breadcrumb">
+    <li>Home</li>
+  </ul>
+  <h1 class="secondary-heading">
+    Home page
+  </h1>
+  
+  <a href="./save_params_demo_shoes.html"><button class="button">Shoes</button></a>
+
+  <div class="url-container">
+    <div class="input_url-container">
+      <h3>Input URL</h3>
+      <textarea id="input_url" class="present_url">
+        No input URL
+      </textarea>
+    </div>
+    <div class="output_url-container">
+      <h3>Output URL</h3>
+      <textarea id="output_url" class="present_url">
+Smart script is not run in this page.
+      </textarea>
+    </div>
+  </div>
+  
+  <script type="text/javascript" src="../../scripts/onelink-smart-script-v2.5.0.js"></script>
+  <script>
+    // load the input URL to thr input_url textArea
+    document.getElementById('input_url').innerHTML = window.location.href;
+  </script>
+  
+</body>
+
+</body>
+</html>

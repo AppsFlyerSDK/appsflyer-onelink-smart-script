@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base herf="/">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../themes/prism.css">
+  <link rel="stylesheet" href="../themes/prism-line-numbers.css">
+  <link rel="stylesheet" href="../themes/prism-live.css"
+  />
+  <style>
+    ul.breadcrumb {
+      padding: 10px 16px;
+      list-style: none;
+      background-color: #eee;
+    }
+    ul.breadcrumb li {
+      display: inline;
+      font-size: 18px;
+    }
+    ul.breadcrumb li+li:before {
+      padding: 8px;
+      color: black;
+      content: "/\00a0";
+    }
+    ul.breadcrumb li a {
+      color: #0275d8;
+      text-decoration: none;
+    }
+    ul.breadcrumb li a:hover {
+      color: #01447e;
+      text-decoration: underline;
+    }
+
+    .button {
+      background-color: #00a0e0; /* Green */
+      border: none;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 26px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+  </style>
+  
+</head>
+<body>
+  <div class="row">
+    <div class="column">
+      <img src="../../images/appsflyerlogo.png" alt="AppsFlyer logo">
+    </div>
+    <div class="column" style="text-align:right;">
+      <img src="../../images/onelinklogo.png" alt="OneLink logo">
+    </div>
+  </div>
+  <h2 class="primary-heading">
+    Save Parameters demo - Save from home page
+  </h2>
+  <h3>
+    This is the web-to-app page. Smart script is sourced and the OneLink link is generated.
+    The saved parameters from the home page are used.
+  </h3>
+  <ul class="breadcrumb">
+    <li><a href="save_params_demo_home.html">Home</a></li>
+    <li><a href="save_params_demo_shoes.html">Shoes</a></li>
+    <li>Women's shoes</li>
+  </ul>
+  <h1 class="secondary-heading">
+    Women's shoes page
+  </h1>
+  
+  <div class="url-container">
+    <div class="input_url-container">
+      <h3>Input URL</h3>
+      <textarea id="input_url" class="present_url">
+        No input URL
+      </textarea>
+    </div>
+    <div>
+      <pre>
+      <textarea id="input_code_for_run" class="prism-live line-numbers language-js fill" spellcheck="false">
+
+      //Initializing Smart Script arguments
+      var oneLinkURL = "https://engmntqa.onelink.me/LtRd/";
+      // If a media source key is NOT FOUND on the link and NO default value is found, the script will return a null string 
+      var mediaSource = {keys: ["utm_source"], defaultValue: "NOOO_default_source"};
+      var channel = {keys: ["utm_channel"], defaultValue: "NOOO_channel"};
+      var deepLinkValue = {keys: ["dp_dest"], defaultValue: "women_shoes_view"};
+
+      //Calling the function after embedding the code will be through a global parameter on the window object called window.AF_SMART_SCRIPT
+      //Onelink URL is generated
+      var result = window.AF_SMART_SCRIPT.generateOneLinkURL({
+        oneLinkURL,
+        afParameters:{
+          mediaSource: mediaSource,
+          channel: channel,
+          deepLinkValue: deepLinkValue,
+        }
+      })
+      
+      var result_url = "No output from script"
+      if (result) {
+            result_url = result.clickURL;            
+            }      
+      document.getElementById('output_url').innerHTML = result_url;
+      
+      </textarea>
+  </pre>
+        <input type="button" value="Run Code" class="code_button" onclick="runTxtAreaCode()" />
+    </div>
+    <div class="output_url-container">
+      <h3>Output URL</h3>
+      <textarea id="output_url" class="present_url">
+        No output from script
+      </textarea>
+    </div>
+  </div>
+  
+  <script type="text/javascript" src="../../scripts/onelink-smart-script-v2.5.0.js"></script>
+  <script src="../scripts/prism.js"></script>
+  <script src="../scripts/prism-line-numbers.js"></script>
+  <script src="../scripts/prism-live.js"></script>
+  <script>
+
+    // load the input URL to thr input_url textArea
+    document.getElementById('input_url').innerHTML = window.location.href;
+    runTxtAreaCode();
+
+    // set the onClicke to run the code in the code editor
+    function runTxtAreaCode() {
+        var headID = document.getElementsByTagName("head")[0];
+        var newScript = document.createElement("script");
+        newScript.type = "text/javascript";
+        newScript.text = document.getElementById("input_code_for_run").value;
+        headID.appendChild(newScript);
+    };
+
+  </script>
+</body>
+
+</body>
+</html>
