@@ -2,7 +2,7 @@
  * AF Smart Script (Build 2.6.0)
  */
 
- function ownKeys(object, enumerableOnly) {
+function ownKeys(object, enumerableOnly) {
   var keys = Object.keys(object);
 
   if (Object.getOwnPropertySymbols) {
