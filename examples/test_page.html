@@ -50,8 +50,7 @@
 	var urlParams = new URLSearchParams(queryString);
 	var encodedCode = urlParams.get('codeFromhq');
 	if(encodedCode){
-		var code = decodeURIComponent(encodedCode);
-		document.getElementById('input_code_for_run').textContent = code;
+		document.getElementById('input_code_for_run').textContent = encodedCode;
 	}
       function dropfile(file) {
         var reader = new FileReader();
