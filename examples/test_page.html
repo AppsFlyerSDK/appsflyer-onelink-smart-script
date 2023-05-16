@@ -46,6 +46,13 @@
     </div>
     <script type="text/javascript" src="../scripts/onelink-smart-script-latest.js"></script>
     <script>
+	var queryString = window.location.search;
+	var urlParams = new URLSearchParams(queryString);
+	var encodedCode = urlParams.get('codeFromhq');
+	if(encodedCode){
+		var code = decodeURIComponent(encodedCode);
+		document.getElementById('input_code_for_run').textContent = code;
+	}
       function dropfile(file) {
         var reader = new FileReader();
         reader.onload = function(e) {
