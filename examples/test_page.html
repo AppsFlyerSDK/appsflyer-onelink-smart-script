@@ -64,6 +64,21 @@
       // set the onClick to run the code in the code editor
       function runTxtAreaCode() {
         try {
+          // This code sets the preserved params in local storage. In a real scenario this is not needed, only here
+          const wb = document.getElementById("input_url").value;
+          const inUrl = new URL(wb);
+          const urlParams = new URLSearchParams(inUrl.search);
+          const queryParams = Array.from(urlParams).reduce(
+            (acc, [key, value]) => ({ ...acc, [key]: encodeURIComponent(value) }),
+            {}
+          );
+          const savedQueryParams = JSON.parse(localStorage.getItem('ss_incoming_params') || '[]');
+          const now = new Date().getTime();
+          const twoHoursLater = now + 2 * 60 * 60 * 1000; // Add 2 hours in milliseconds(product request)
+          const dataToSave = { ...queryParams, af_ss_exp_at: twoHoursLater };
+          savedQueryParams.unshift(dataToSave); // we used unshift becuse the order matter
+          localStorage.setItem('ss_incoming_params', JSON.stringify(savedQueryParams));
+          // End of preserving the incoming params
           window.result = undefined;
           window.AF_SMART_SCRIPT_RESULT = undefined;
           document.getElementById("output_url").value = "";
