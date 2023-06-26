@@ -152,11 +152,10 @@
         document.getElementById('input_code_for_run').style.borderColor = '#E5E8ED';
 
         // Send Google Analytics - Clear Script
-          ga('send', {
-            hitType: 'event',
-            eventCategory: 'SmartScriptTestPage',
-            eventAction: 'ClearScript',
-        });
+        gtag('event', 'RunScript', {
+              'event_category' : 'SmartScriptTestPage',
+              'event_label' : 'ClearScript'
+            });
       };
 
       function success() {
