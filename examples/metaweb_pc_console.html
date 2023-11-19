@@ -1,5 +1,5 @@
-<!-- This example will demonstare converting a URL to OneLink URL using Facebook click id -->
-<!-- Calling URL: https://appsflyersdk.github.io/af-onelink-smart-script/examples/facebook_clickid.html?inmedia=email&fbclid=7hjy89 -->
+<!-- This example will demonstare Meta Web integration setup for PC and console apps -->
+<!-- Calling URL: https://appsflyersdk.github.io/af-onelink-smart-script/examples/metaweb_pc_console.html?inmedia=email&fbclid=7hjy89 -->
 <!-- Expected OneLink URL: https://engmntqa.onelink.me/LtRd/?af_js_web=true&af_ss_ver=2_2_0&pid=email&af_sub2=7hjy89 -->
 <!DOCTYPE html>
 <html>
@@ -38,7 +38,7 @@
     OneLink Smart Script V2
   </h1>
   <h2 class="secondary-heading">
-    Meta Click ID Demo
+    Meta Web integration setup for PC and console apps Demo
   </h2>
   <div class="url-container">
     <div class="input_url-container">
@@ -56,10 +56,10 @@
 
         //Initializing Smart Script arguments
         var oneLinkURL = "https://engmntqa.onelink.me/LtRd/";
-        // If a media source key is NOT FOUND on the link and NO default value is found, the script will return a null string 
-        var mediaSource = {keys: ["inmedia"], defaultValue: "my_media_default_source"};
+        // In this Meta Ads case, the media source (`pid`) MUST be set statically to `metaweb_int`
+        var mediaSource = {keys: [], defaultValue: "metaweb_int"};
         // Facebook clickid is placed in af_sub2
-        var afSub2 = {keys: ["fbclid"]};
+        var fbclid_out = {paramKey: "fbclid", keys: ["fbclid"], defaultValue: ""}; 
   
         //Function is embedded on the window object in a global parameter called window.AF_SMART_SCRIPT.
         //Onelink URL is generated
@@ -67,7 +67,9 @@
           oneLinkURL,
           afParameters:{
             mediaSource: mediaSource,
-            afSub2: afSub2
+            afCustom: [
+            fbclid_out
+            ]
           }
         })  
         
