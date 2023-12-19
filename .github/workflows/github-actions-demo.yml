@@ -18,10 +18,11 @@ jobs:
         with:
           node-version: 'latest'
 
-      - run: npm install
+      - name: Install dependencies
+        run: cd testing && npm install
 
-      - name: Install Puppeteer
-        run: npm install puppeteer
+      - name: Run Puppeteer test
+        run: cd testing && npm test
 
       - name: Run Puppeteer script
         run: |
