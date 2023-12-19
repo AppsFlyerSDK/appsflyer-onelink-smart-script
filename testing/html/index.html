@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validate smartscript</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+    <script type="module" src="app.js" defer></script>
+    <script type="text/javascript"
+        src="https://onelinksmartscript.appsflyer.com/onelink-smart-script-latest.js"></script>
+</head>
+
+<body>
+    <div class="output_url-container">
+        <div id="my_qr_code_div_id"></div>
+        <h2>Output URL</h2>
+        <textarea id="output_url" class="present_url">
+          No output from script
+        </textarea>
+    </div>
+    <div>
+        <a style="text-decoration: none;" id="ios_link"
+            href="https://apps.apple.com/us/app/my-device-id-by-appsflyer/id1192323960">
+            <img width="300" src="./images/app_store.png" alt="app store link">
+        </a>
+        <a style="text-decoration: none;" id="andrd_link"
+            href="https://play.google.com/store/apps/details?id=com.appsflyer.android.deviceid">
+            <img width="300" src="./images/play_store.png" alt="play store link">
+        </a>
+    </div>
+    <div id="smartscript-result">waiting for result</div>
+
+</body>
+
+</html>
