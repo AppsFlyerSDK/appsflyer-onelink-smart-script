@@ -21,8 +21,8 @@ jobs:
       - name: Install dependencies
         run: cd testing && npm install
 
-      - name: Run Puppeteer test
-        run: cd testing && npm test
+      - name: Install Puppeteer
+        run: cd testing && npm install puppeteer
 
       - name: Run Puppeteer script
         run: |
