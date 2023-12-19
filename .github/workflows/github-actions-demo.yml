@@ -1,0 +1,28 @@
+name: Web Page Interaction with Puppeteer
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  interact_with_webpage:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 'latest'
+
+      - run: npm install
+
+      - name: Install Puppeteer
+        run: npm install puppeteer
+
+      - name: Run Puppeteer script
+        run: |
+          node testing/checkSmartscriptOnExamples.js

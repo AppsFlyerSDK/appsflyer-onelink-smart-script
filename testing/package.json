@@ -1,0 +1,14 @@
+{
+  "name": "check_smart_script_page",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "node interact_with_webpage.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^21.6.0"
+  }
+}
