@@ -3,7 +3,7 @@ name: Web Page Interaction with Puppeteer
 on:
   push:
     branches:
-      - testing
+      - main
 
 jobs:
   interact_with_webpage:
