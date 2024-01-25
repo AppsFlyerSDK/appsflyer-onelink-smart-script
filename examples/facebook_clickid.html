@@ -1,6 +1,6 @@
 <!-- This example will demonstare converting a URL to OneLink URL using Facebook click id -->
 <!-- Calling URL: https://appsflyersdk.github.io/af-onelink-smart-script/examples/facebook_clickid.html?inmedia=email&fbclid=7hjy89 -->
-<!-- Expected OneLink URL: https://engmntqa.onelink.me/LtRd/?af_js_web=true&af_ss_ver=2_2_0&pid=email&af_sub2=7hjy89 -->
+<!-- Expected OneLink URL: https://engmntqa.onelink.me/LtRd/?af_js_web=true&af_ss_ver=2_2_0&pid=email&af_sub2=7hjy89&fbclid=7hjy89 -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,8 +58,10 @@
         var oneLinkURL = "https://engmntqa.onelink.me/LtRd/";
         // If a media source key is NOT FOUND on the link and NO default value is found, the script will return a null string 
         var mediaSource = {keys: ["inmedia"], defaultValue: "my_media_default_source"};
-        // Facebook clickid is placed in af_sub2
+        // Facebook clickid passthrough to af_sub2 outgoing parameter
         var afSub2 = {keys: ["fbclid"]};
+        // Facebook clickid passthrough to "fbclid" outgoing parameter
+        var fbclid_out = {paramKey: "fbclid", keys: ["fbclid"]};
   
         //Function is embedded on the window object in a global parameter called window.AF_SMART_SCRIPT.
         //Onelink URL is generated
@@ -67,7 +69,10 @@
           oneLinkURL,
           afParameters:{
             mediaSource: mediaSource,
-            afSub2: afSub2
+            afSub2: afSub2,
+            afCustom: [
+              fbclid_out
+            ]
           }
         })  
         
