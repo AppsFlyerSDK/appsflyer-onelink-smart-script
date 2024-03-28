@@ -1,0 +1,201 @@
+<!-- This example will demonstare GTM with Direct Click URL -->
+<!-- Calling URL: https://appsflyersdk.github.io/af-onelink-smart-script/examples/google_tag_manager.html?my_source=email&app_dest=planes&typeid=b787&msg_id=f7h8 -->
+<!-- Expected OneLink URL: https://engmntqa.onelink.me/LtRd/?af_js_web=true&af_ss_ver=2_2_0&pid=email&deep_link_value=planes&af_sub4=f7h8&deep_link_sub1=b787 -->
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-NMBGJJXB');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- import the webpage's stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="themes/prism.css"
+  />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJJXZ6Q5BJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-RJJXZ6Q5BJ');
+  </script>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NMBGJJXB"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div class="row">
+    <div class="column">
+      <img src="../images/appsflyerlogo.png" alt="AppsFlyer logo">
+    </div>
+    <div class="column" style="text-align:right;">
+      <img src="../images/onelinklogo.png" alt="OneLink logo">
+    </div>
+  </div>
+  <h1 class="primary-heading">
+    OneLink Smart Script V2
+  </h1>
+  <h2 class="secondary-heading">
+    OneLink Google Tag Manager Direct Click Demo
+  </h2>
+    
+  <div class="url-container">
+    <div class="input_url-container">
+      <h2>Input URL</h2>
+      <h3>To edit: make changes to the input URL in the address bar and reload the page.
+        Changes you have made to the script below will be lost after reload.
+      </h3>
+      <textarea id="input_url" class="present_url" readonly>
+        No input URL
+      </textarea>
+    </div>
+    <div>
+      <h3>Code ran by Google Tag manager</h3>
+      <pre><code class="language-js">
+        
+        // ** Step 1 ** Initializing Smart Script arguments
+        // TODO: change to your onelink template URL
+        var oneLinkURL = "https://gaming-demo-landing-page.onelink.me/AG7A";
+      
+        // TODO: Define the mapping of incoming URL parameters to outgoing parameters (impression and install links)
+        var channel = { keys: ["inchnl"] };
+        var mediaSource = {
+          keys: ["utm_source"],
+          defaultValue: "game_media_source",
+        };
+        var campaign = {
+          keys: ["campaign_name", "utm_campaign"],
+          defaultValue: "game_landing_page",
+        };
+        var ad = {
+          keys: ["ad_name", "utm_content"],
+          defaultValue: "game_ad_name",
+        };
+        var adset = { keys: ["adset_name"], defaultValue: "game_adset_name" };
+        // extracting parameters for facebook click
+        var afSub2 = { keys: ["fbclid"] };
+        var fbclid_out = {paramKey: "fbclid", keys: ["fbclid"]};
+        var googleClickIdKey = "gclid";
+      
+        var afParameters = {
+          mediaSource: mediaSource,
+          campaign: campaign,
+          ad: ad,
+          adSet: adset,
+          afSub2: afSub2,
+          googleClickIdKey: googleClickIdKey,
+          afCustom: [
+            // !!! IMPORTANT !!!
+            // The following param is mandatory for cross-platform impression. MUST BE ADDED
+            { paramKey: "af_xplatform", keys: [], defaultValue: "true" },
+            fbclid_out
+          ],
+        };
+        
+        console.log("Before generateOneLinkURL");
+
+        // ** Step 2 ** - Call the Smart Script method generateOneLinkURL(). The method generates the infrastructure to fire an impression in the next step
+        // Calling the function after embedding the code will be through a global parameter on the window object called window.AF_SMART_SCRIPT
+        var OL_result = window.AF_SMART_SCRIPT.generateOneLinkURL({
+          oneLinkURL: oneLinkURL,
+          afParameters:{
+            mediaSource: mediaSource,
+            campaign: campaign,
+            ad: ad,
+            adSet: adset,
+            afSub2: afSub2,
+            googleClickIdKey: googleClickIdKey,
+            afCustom: [
+              // !!! IMPORTANT !!!
+              // The following param is mandatory for cross-platform impression. MUST BE ADDED
+              { paramKey: "af_xplatform", keys: [], defaultValue: "true" },
+              fbclid_out
+            ],
+          }
+        });
+      
+        console.log("After generateOneLinkURL");
+
+        // ** Step 3 ** - Verify that the returned result from generateOneLinkURL() is not null. If verified, fire the impression.
+        // Read more https://dev.appsflyer.com/hc/docs/create-direct-click-url
+
+        if (OL_result) {
+          // The following command will fire the impression.
+          // The impression will fire to https://impressions.onelink.me//....
+          // The wait is a temporary bug fix
+          console.log("Before Impression fired");
+          setTimeout(function() {
+          window.AF_SMART_SCRIPT.fireImpressionsLink();
+          console.log("Impression fired");
+          }, 1000);
+        }
+        
+        // Find index of custom parameter "af_xplatform=true" to remove from afCustom array
+        var indexToRemove;
+        for (var i = 0; i < afParameters.afCustom.length; i++) {
+          if (afParameters.afCustom[i].paramKey === "af_xplatform") {
+            indexToRemove = i;
+            break;
+          }
+        }
+        // Remove item from afCustom array at the found index
+        if (indexToRemove !== -1) {
+          afParameters.afCustom.splice(indexToRemove, 1);
+        }
+       
+        // @@@@ Section START - Create installation link @@@@
+
+        AF_SMART_SCRIPT_RESULT = window.AF_SMART_SCRIPT.generateDirectClickURL({
+          afParameters: afParameters,
+          platform: "steam",
+          app_id: "butterflyer",
+          redirectURL: "https://store.steampowered.com/app/1176160/Space_Wars/",
+        });
+
+        // @@@@ Create installation links - Section END @@@@
+
+      </code></pre>
+    </div>
+    <div class="output_url-container">
+      <h2>Output URL</h2>
+      <textarea id="output_url" class="present_url">
+        No output from script
+      </textarea>
+    </div>
+  </div>
+  <div class="stores-wrapper">
+    <a id="ios_link" href="https://apps.apple.com/us/app/my-device-id-by-appsflyer/id1192323960">
+        <img class="appstore-image" src="../images/app_store.png" alt="app store link" >
+    </a>
+    
+    <a id="andrd_link" class="appstore-image" href="https://play.google.com/store/apps/details?id=com.appsflyer.android.deviceid">
+        <img src="../images/play_store.png" alt="play store link">
+    </a>
+  </div>
+  <script type="text/javascript">
+    window.onload = function () {
+      document.getElementById('input_url').innerHTML = window.location.href;
+      
+      var result_url = AF_SMART_SCRIPT_RESULT.clickURL;
+      if (result_url) {
+            document.getElementById('andrd_link').setAttribute('href', result_url);
+            document.getElementById('ios_link').setAttribute('href', result_url);
+            document.getElementById('output_url').innerHTML = result_url;
+      }
+
+    };
+  </script>
+  <script src="scripts/prism.js"></script>
+</body>
+
+</body>
+</html>
+ 
