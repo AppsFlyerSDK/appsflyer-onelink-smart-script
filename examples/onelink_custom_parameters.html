@@ -59,8 +59,6 @@
         // If a media source key is NOT FOUND on the link and NO default value is found, the script will return a null string 
         var mediaSource = {keys: ["inmedia"], defaultValue: "my_media_default_source"};
         var deepLinkValue = {keys: ["dp_dest"], defaultValue: "peaches"};
-        // Setting an attribution parameter
-        var af_prt = {paramKey: "af_prt", keys: ["partner"], defaultValue: "defaultPartner"};
         // Setting OneLink custom parameter
         var deep_link_sub1 = {paramKey: "deep_link_sub1", keys: ["pageid"], defaultValue: "1a1a"};
         var dl_product_id = {paramKey: "dl_product_id", keys: ["productid"], overrideValues: {shirt12: "men_shirt_012"}, defaultValue: "no_shirt"};
@@ -75,7 +73,6 @@
             mediaSource: mediaSource,
             deepLinkValue: deepLinkValue,
             afCustom: [
-              af_prt,
               deep_link_sub1,
               dl_product_id,
               dl_product_source
