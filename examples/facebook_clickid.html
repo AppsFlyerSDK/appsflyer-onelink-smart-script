@@ -60,8 +60,6 @@
         var mediaSource = {keys: ["inmedia"], defaultValue: "my_media_default_source"};
         // Facebook clickid passthrough to af_sub2 outgoing parameter
         var afSub2 = {keys: ["fbclid"]};
-        // Facebook clickid passthrough to "fbclid" outgoing parameter
-        var fbclid_out = {paramKey: "fbclid", keys: ["fbclid"]};
   
         //Function is embedded on the window object in a global parameter called window.AF_SMART_SCRIPT.
         //Onelink URL is generated
@@ -69,10 +67,7 @@
           oneLinkURL,
           afParameters:{
             mediaSource: mediaSource,
-            afSub2: afSub2,
-            afCustom: [
-              fbclid_out
-            ]
+            afSub2: afSub2
           }
         })  
         
