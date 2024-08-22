@@ -1,0 +1,138 @@
+<!-- This example will demonstare converting a URL to OneLink URL using google GBRAID -->
+<!-- Calling URL: https://appsflyersdk.github.io/af-onelink-smart-script/examples/google_gbraid.html?inmedia=email&gbraid=1a2b3c -->
+<!-- Expected OneLink URL: https://engmntqa.onelink.me/LtRd/?af_js_web=true&af_ss_ver=2_2_0&pid=email&gbraid=1a2b3c&af_sub4=1a2b3c -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <base herf="/">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="themes/prism.css">
+  <link rel="stylesheet" href="themes/prism-line-numbers.css">
+  <link rel="stylesheet" href="themes/prism-live.css"
+  />
+  <style>
+    foo {
+      background: black;
+    }
+  </style>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RJJXZ6Q5BJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-RJJXZ6Q5BJ');
+  </script>
+</head>
+<body>
+  <div class="row">
+    <div class="column">
+      <img src="../images/appsflyerlogo.png" alt="AppsFlyer logo">
+    </div>
+    <div class="column" style="text-align:right;">
+      <img src="../images/onelinklogo.png" alt="OneLink logo">
+    </div>
+  </div>
+  <h1 class="primary-heading">
+    OneLink Smart Script V2
+  </h1>
+  <h2 class="secondary-heading">
+    Google GBRAID Demo
+  </h2>
+  <div class="url-container">
+    <div class="input_url-container">
+      <h2>Input URL</h2>
+      <h3>To edit: make changes to the input URL in the address bar and reload the page.
+        Changes you have made to the script below will be lost after reload.
+      </h3>
+      <textarea id="input_url" class="present_url" readonly>
+        No input URL
+      </textarea>
+    </div>
+    <div>
+      <pre>
+      <textarea id="input_code_for_run" class="prism-live line-numbers language-js fill" spellcheck="false">
+
+      //Initializing Smart Script arguments
+      var oneLinkURL = "https://engmntqa.onelink.me/LtRd/";
+      // If a media source key is NOT FOUND on the link and NO default value is found, the script will return a null string 
+      var mediaSource = {keys: ["inmedia"], defaultValue: "my_media_default_source"};
+      var afSub4 = {keys: ["gbraid"]};
+      // Google gbraid passthrough to "gbraid" outgoing parameter
+      var gbraid_out = {paramKey: "gbraid", keys: ["gbraid"]};
+;
+      //Calling the function after embedding the code will be through a global parameter 
+      //on the window object called window.AF_SMART_SCRIPT
+      //Onelink URL is generated
+      var result = window.AF_SMART_SCRIPT.generateOneLinkURL({
+        oneLinkURL,
+        afParameters:{
+          mediaSource: mediaSource,
+          afSub4: afSub4,
+          afCustom: [
+            gbraid_out
+          ]
+        }
+      })
+      
+      var result_url = "No output from script"
+      if (result) {
+            result_url = result.clickURL;            
+            document.getElementById('andrd_link').setAttribute('href', result_url);
+            document.getElementById('ios_link').setAttribute('href', result_url);
+      }      
+      document.getElementById('output_url').innerHTML = result_url;
+      
+      </textarea>
+  </pre>
+        <input type="button" value="Run Code" class="code_button" onclick="runTxtAreaCode()" />
+    </div>
+    <div class="output_url-container">
+      <h2>Output URL</h2>
+      <textarea id="output_url" class="present_url">
+        No output from script
+      </textarea>
+    </div>
+  </div>
+  <div class="stores-wrapper">
+    <a id="ios_link" href="https://apps.apple.com/us/app/my-device-id-by-appsflyer/id1192323960">
+        <img class="appstore-image" src="../images/app_store.png" alt="app store link" >
+    </a>
+    
+    <a id="andrd_link" class="appstore-image" href="https://play.google.com/store/apps/details?id=com.appsflyer.android.deviceid">
+        <img src="../images/play_store.png" alt="play store link">
+    </a>
+  </div>
+  <script type="text/javascript" src="https://onelinksmartscript.appsflyer.com/onelink-smart-script-latest.js"></script>
+  <script src="scripts/prism.js"></script>
+  <script src="scripts/prism-line-numbers.js"></script>
+  <script src="scripts/prism-live.js"></script>
+  <script>
+
+    // load the input URL to thr input_url textArea
+    document.getElementById('input_url').innerHTML = window.location.href;
+    runTxtAreaCode();
+
+    // set the onClicke to run the code in the code editor
+    function runTxtAreaCode() {
+        var headID = document.getElementsByTagName("head")[0];
+        var newScript = document.createElement("script");
+        newScript.type = "text/javascript";
+        newScript.text = document.getElementById("input_code_for_run").value;
+        headID.appendChild(newScript);
+        // Send Google Analytics - Run Script Successful
+        gtag('event', 'RunScript', {
+              'event_category' : 'SmartScriptGoogleClickId',
+              'event_label' : 'Success'
+            });
+    };
+
+  </script>
+</body>
+
+</body>
+</html>
+
+
