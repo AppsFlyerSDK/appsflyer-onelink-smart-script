@@ -24,6 +24,7 @@ Table of contents:
   - [Media source default value](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/mediasource_default_value.html?inmedia_found=orig_media_value)
   - [Forced default values](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/forced_default_values.html?inmedia_found=plain_media_source)
   - [UTM Parameters](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/utm_parameters.html?utm_campaign=mycmpn&utm_source=mysource)
+  - [Organic Search (SEO) install attribution](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/seo.html)
   - [Google Click ID](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/google_clickid.html?inmedia=email&gclid=1a2b3c&keyword=sale%2Bboat)
   - [Facebook Click ID](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/facebook_clickid.html?inmedia=email&fbclid=7hjy89)
   - [OneLink and attribution parameters](https://appsflyersdk.github.io/appsflyer-onelink-smart-script/examples/onelink_parameters.html?inmedia=email&dp_dest=apples&inchnl=this_channel&promo=buy99)
